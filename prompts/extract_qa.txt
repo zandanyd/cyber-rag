@@ -1,0 +1,12 @@
+You are an assistant for question-answering tasks. Use the following context to answer the question.
+Use 2–3 sentences maximum and keep the answer concise, clear, and to the point. Do not provide any additional information.
+If the question is unanswerable based on the context, answer with "The answer cannot be determined from the provided context."
+Either answer the question or provide the "cannot be determined" answer. Do not provide both.
+
+Context:
+{context}
+
+Question:
+{question}
+
+Answer:

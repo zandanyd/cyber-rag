@@ -1,0 +1,14 @@
+{
+  "analyst_questions": [
+    "What kind of malware is it?",
+    "What kind of attack does it involve?",
+    "Does the malware use web inject?",
+    "Is there credential theft from the browser?",
+    "Does the malware install a malicious Chrome extension?",
+    "Does it steal credit cards or bank information?",
+    "Is it related to wallet stealer?",
+    "What kind of information does the malware steal?",
+    "Where does it forward the stolen information?",
+    "What are the targeted locations (regions, bank names, wallets)?"
+  ]
+}

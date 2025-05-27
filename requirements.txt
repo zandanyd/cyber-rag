@@ -1,0 +1,13 @@
+#Core model + embeddings
+sentence-transformers~=4.1.0
+transformers~=4.49.0
+
+#Tokenizer for chunking
+nltk~=3.9.1
+
+#LLM local runtime (Ollama client)
+ollama~=0.4.8
+
+
+numpy~=2.2.4
+faiss-cpu~=1.11.0
