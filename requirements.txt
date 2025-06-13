@@ -11,3 +11,10 @@ ollama~=0.4.8
 
 numpy~=2.2.4
 faiss-cpu~=1.11.0
+pytesseract~=0.3.13
+docling~=2.26.0
+requests~=2.32.2
+pillow~=11.1.0
+beautifulsoup4~=4.13.3
+python-dotenv~=1.0.1
+chonkie

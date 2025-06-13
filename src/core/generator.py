@@ -35,7 +35,7 @@ class LLMGenerator:
 
     def get_prompt(self, name: str) -> str:
 
-        path = os.path.join("prompts", f"{name}.txt")
+        path = os.path.join("src/prompts", f"{name}.txt")
         if not os.path.exists(path):
             raise FileNotFoundError(f"Prompt file not found: {path}")
 

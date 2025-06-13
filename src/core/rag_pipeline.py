@@ -1,5 +1,5 @@
-from rag.retriever import RAGRetriever
-from rag.generator import LLMGenerator
+from src.core.retriever import RAGRetriever
+from src.core.generator import LLMGenerator
 
 
 class RAGPipeline:
@@ -21,7 +21,7 @@ class RAGPipeline:
             prompt_name (str): Prompt template to load (e.g., 'extract_qa').
             top_k (int): Number of most relevant chunks to use as context.
         """
-        self.retriever = RAGRetriever(model_name=embed_model, tokenizer_name=tokenizer_name)
+        self.retriever = RAGRetriever(model_name=embed_model)
         self.generator = LLMGenerator(model=llm_model, prompt_name=prompt_name)
         self.top_k = top_k
 
@@ -37,15 +37,11 @@ class RAGPipeline:
         Returns:
             str: The LLM-generated answer.
         """
-        # Step 1: Chunk and embed the blog
-        chunks = self.retriever.chunk_text(blog_text)
-        embeddings = self.retriever.embed_chunks(chunks)
-        top_k = self.top_k
+        self.retriever.prepare_index(blog_text)
+        retrieved_chunks = self.retriever.query(question, top_k=self.top_k)
+        context = "\n".join(
+            chunk.text if hasattr(chunk, "text") else chunk for chunk in retrieved_chunks
+        )
 
-        # Step 2: Retrieve top-k relevant chunks
-        top_chunks = self.retriever.retrieve(chunks, embeddings, question, top_k)
-        context = "\n".join(top_chunks)
-
-        # Step 3: Generate final answer using the retrieved context
         answer = self.generator.generate_answer(question, context)
         return answer
