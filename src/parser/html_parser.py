@@ -94,7 +94,7 @@ class HTMLParser:
 
     @staticmethod
     def _extract_article_content_from_markdown(markdown: str) -> str:
-        # Regex to match the title and everything after it, TODO: improve method (?)
+        # Regex to match the title and everything after it,
         pattern = r"(# .*)"
         match = re.search(pattern, markdown, re.DOTALL)
         if match:

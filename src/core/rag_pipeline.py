@@ -8,7 +8,7 @@ class RAGPipeline:
                  tokenizer_name: str = 'bert-base-uncased',
                  llm_model: str = 'phi3',
                  prompt_name: str = 'extract_qa',
-                 top_k = 2):
+                 top_k = 4):
         """
         Initializes the full RAG pipeline:
         - Embedding + chunking using SentenceTransformer
