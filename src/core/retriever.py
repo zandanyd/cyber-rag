@@ -1,10 +1,8 @@
 from sentence_transformers import SentenceTransformer
 import numpy as np
 import nltk
-from transformers import AutoTokenizer
 import faiss
 from chonkie import RecursiveChunker
-
 for resource in ['punkt', 'punkt_tab']:
     try:
         nltk.data.find(f'tokenizers/{resource}')
@@ -15,7 +13,7 @@ for resource in ['punkt', 'punkt_tab']:
 
 class RAGRetriever:
     def __init__(self, model_name = 'multi-qa-MiniLM-L6-cos-v1'):
-        self.chunker = RecursiveChunker(chunk_size=256)
+        self.chunker = RecursiveChunker(chunk_size=512)
         self.embedder = SentenceTransformer(model_name)
         self.chunks = []
         self.index = None

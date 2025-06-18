@@ -1,28 +1,34 @@
-import ollama
 import os
+import ollama
+from dotenv import load_dotenv
+from src.llm_api import get_chat_llm_client  # Your WatsonX API wrapper
+
+load_dotenv()
 
 class LLMGenerator:
-    def __init__(self, model='mistral', prompt_name = "extract_qa"):
+    def __init__(self, prompt_name="extract_qa"):
         """
-        Initialize the generator with the selected Ollama model.
+        Initialize the generator with the selected LLM provider and model from .env
         """
-        self.model = model
+        self.provider = os.getenv("LLM_PROVIDER", "ollama").lower()
+        self.model = os.getenv("LLM_MODEL", "mistral")
         self.prompt = self.get_prompt(prompt_name)
 
+        if self.provider == "watsonx":
+            self.client = get_chat_llm_client(model_name=self.model)
 
     def build_prompt(self, question: str, context: str) -> str:
-        """
-        Creates a structured prompt for the LLM using the retrieved context and a fixed question.
-        """
         return self.prompt.format(context=context.strip(), question=question.strip())
 
-
     def generate_answer(self, question: str, context: str) -> str:
-        """
-        Sends the structured prompt to the Ollama model and returns the generated response.
-        """
         prompt = self.build_prompt(question, context)
 
+        if self.provider == "watsonx":
+            return self._generate_with_watsonx(prompt)
+        else:
+            return self._generate_with_ollama(prompt)
+
+    def _generate_with_ollama(self, prompt: str) -> str:
         response = ollama.chat(
             model=self.model,
             messages=[
@@ -32,11 +38,13 @@ class LLMGenerator:
         )
         return response['message']['content'].strip()
 
+    def _generate_with_watsonx(self, prompt: str) -> str:
+        response = self.client.invoke(prompt)
+        return response.content.strip()
 
     def get_prompt(self, name: str) -> str:
         current_dir = os.path.dirname(os.path.abspath(__file__))
         src_dir = os.path.abspath(os.path.join(current_dir, ".."))
-
         prompt_path = os.path.join(src_dir, "prompts", f"{name}.txt")
 
         if not os.path.exists(prompt_path):

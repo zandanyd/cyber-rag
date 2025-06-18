@@ -10,5 +10,17 @@
     "What kind of information does the malware steal?",
     "Where does it forward the stolen information?",
     "What are the targeted locations (regions, bank names, wallets)?"
+  ],
+  "analyst_queries": [
+    "What kind of malware is it? for example, as a trojan, spyware, information stealer, or remote access tool?",
+    "What type of cyber attack is described — such as phishing, social engineering, drive-by download, or exploiting software vulnerabilities?",
+    "Is there any evidence that the malware performs web injection attacks, such as injecting scripts into banking websites or modifying web pages to capture user input?",
+    "Does the malware extract or steal saved credentials (like usernames and passwords) from web browsers such as Chrome, Edge, or Firefox?",
+    "Does the attack involve deploying or installing a malicious browser extension — specifically for Chrome — that enables monitoring, injection, or credential harvesting?",
+    "Does the malware exfiltrate financial data such as credit card numbers, banking credentials, or transaction details?",
+    "Is the malware associated with stealing cryptocurrency wallets, browser-based wallet extensions, or private keys?",
+    "What types of data does the malware collect — such as credentials, screenshots, clipboard data, cookies, or system metadata?",
+    "To which external servers, domains, or IP addresses is the stolen data sent or exfiltrated by the malware?",
+    "Are there any specific geographic regions, financial institutions, cryptocurrency wallets, or banks mentioned as targets of the malware?"
   ]
 }
