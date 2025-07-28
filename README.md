@@ -37,12 +37,16 @@ python run.py
       pip install -r requirements.txt
  ```
 4. Edit the .env file and choose your preferred LLM provider:
-  - If using WatsonX Fill in the required fields
+  - If using WatsonX:
+
+     Fill in the required fields
     
     You can get your credentials at 👉 https://dataplatform.cloud.ibm.com
     
-  - If using Ollama: Make sure Ollama is installed and running locally.
-  - 
+  - If using Ollama:
+
+     Make sure Ollama is installed and running locally.
+    
     Start the Mistral model with:
      ```bash
       ollama run mistral
