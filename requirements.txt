@@ -18,3 +18,4 @@ pillow~=11.1.0
 beautifulsoup4~=4.13.3
 python-dotenv~=1.0.1
 chonkie
+langchain_ibm
