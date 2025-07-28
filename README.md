@@ -1,4 +1,5 @@
 <img width="680" height="235" alt="image" src="https://github.com/user-attachments/assets/fc0825da-9e5c-4848-acd9-ba6012fe0766" />
+
 # 🛡️ Cyber RAG
 
 Cyber RAG is a command-line tool that automatically answers predefined cybersecurity questions from blog posts to help analysts quickly analyze and summarize threat intelligence articles.
@@ -37,8 +38,11 @@ python run.py
  ```
 4. Edit the .env file and choose your preferred LLM provider:
   - If using WatsonX Fill in the required fields
+    
     You can get your credentials at 👉 https://dataplatform.cloud.ibm.com
+    
   - If using Ollama: Make sure Ollama is installed and running locally.
+  - 
     Start the Mistral model with:
      ```bash
       ollama run mistral
