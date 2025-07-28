@@ -16,7 +16,7 @@ It uses Retrieval-Augmented Generation (RAG) to combine blog content with small 
 ## 🚀 Quick Start
 
 ```bash
-git clone https://github.com/your-username/cyber-rag.git
+git clone https://github.com/zandanyd/cyber-rag.git
 cd cyber-rag
 python run.py
 ```
@@ -53,7 +53,20 @@ python run.py
       ```
     No API keys are needed — Cyber RAG will connect to Ollama automatically via http://localhost:11434.
 
-    
+## 📝 Usage
+You can run Cyber RAG either by passing the blog URL as a command-line argument or by entering it interactively when prompted.
+  - Pass the blog URL directly
+   ```bash
+      python main.py --url https://...
+   ```
+  - Run the tool and enter the URL interactively
+     ```bash
+      python main.py
+      ```
+
+<img width="1796" height="835" alt="image" src="https://github.com/user-attachments/assets/61c137f8-f184-4126-9f29-37153cfc6153" />
+
+
 
 
 
