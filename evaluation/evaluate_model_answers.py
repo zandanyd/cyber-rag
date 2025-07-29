@@ -128,7 +128,7 @@ Please reply in the following JSON format:
         }
 
 
-def save_final_results(results, output_path="answers_with_eval.json"):
+def save_final_results(results, output_path="answers_with_rag.json"):
     """Saves all evaluation results to a JSON file."""
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
@@ -136,7 +136,7 @@ def save_final_results(results, output_path="answers_with_eval.json"):
 
 
 def evaluate_with_rag():
-    raw_examples = extract_examples_from_jsonl("dataset.jsonl")
+    raw_examples = extract_examples_from_jsonl("blogs_with_questions_and_answers.jsonl")
 
     from src.core.rag_pipeline import RAGPipeline
     pipeline = RAGPipeline()
@@ -180,13 +180,13 @@ def run_without_rag_and_evaluate(examples, llm_generator, eval_client):
     return results
 
 def evaluate_without_rag():
-    raw_examples = extract_examples_from_jsonl("dataset.jsonl")
+    raw_examples = extract_examples_from_jsonl("blogs_with_questions_and_answers.jsonl")
 
     llm_generator = LLMGenerator(prompt_name="extract_qa")  # Uses model from .env
     eval_client = get_chat_llm_client(model_name="meta-llama/llama-3-3-70b-instruct")
 
     results = run_without_rag_and_evaluate(raw_examples, llm_generator, eval_client)
-    save_final_results(results, output_path="answers_no_rag_eval.json")
+    save_final_results(results, output_path="answers_without_rag.json")
 
 
 if __name__ == "__main__":
