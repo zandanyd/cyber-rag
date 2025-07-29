@@ -66,7 +66,9 @@ You can run Cyber RAG either by passing the blog URL as a command-line argument 
 
 <img width="1796" height="835" alt="image" src="https://github.com/user-attachments/assets/61c137f8-f184-4126-9f29-37153cfc6153" />
 
+# 📊 Evaluation
 
+We evaluated the system using the `evaluation/` directory, which contains the blog dataset, RAG and non-RAG model outputs, and a grading script using `LLaMA 3 70B`. See `evaluation/README.md` for details.
 
 
 
